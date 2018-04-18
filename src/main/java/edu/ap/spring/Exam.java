@@ -60,7 +60,16 @@ public class Exam {
 	// zijn aan twee
 	// 2 punten
 	public String getXOverTwo(List<Point> points) {
-		
+		List<Double> xValues = points.stream()
+				.filter(x -> x.getX() >= 2)
+				.map(x -> x.getX())
+				.collect(Collectors.toList());
+		String overTwo = "";
+		for(int i = 0; i < xValues.size(); i++) {
+			overTwo += String.valueOf(xValues.get(i).intValue()) + ",";
+		}
+		overTwo = overTwo.substring(0, overTwo.length() - 1);
+		return overTwo;
 	}
 	
 	
